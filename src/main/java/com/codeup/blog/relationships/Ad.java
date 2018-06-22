@@ -1,6 +1,7 @@
 package com.codeup.blog.relationships;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "ads")
@@ -21,6 +22,9 @@ public class Ad {
     @ManyToOne
     @JoinColumn
     private User user;
+
+    @ManyToMany(mappedBy = "ads")
+    private List<Category> categoryList;
 
     public long getId() {
         return id;

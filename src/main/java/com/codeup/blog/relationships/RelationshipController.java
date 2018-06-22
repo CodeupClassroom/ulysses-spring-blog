@@ -47,7 +47,9 @@ public class RelationshipController {
         User user = userRepository.findOne(1l);
 
         System.out.println("Showing ads belonging to user " + user.getUsername());
+
         List<Ad> ads = user.getAds();
+
         for (Ad ad : ads) {
             System.out.println("  - " + ad.getTitle());
         }
@@ -55,11 +57,13 @@ public class RelationshipController {
         return "Again, it's in the console.";
     }
 
-    // TODO: show the email address of the user for a given ad
     @GetMapping("/example-show")
     public String show() {
         Ad ad = adRepository.findOne(1l);
+
         System.out.println(ad.getUser().getEmail());
+
+
         return "Console!";
     }
 }
